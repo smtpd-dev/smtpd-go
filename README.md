@@ -11,7 +11,7 @@
 [5]: https://goreportcard.com/badge/github.com/smtpd-dev/smtpd-go
 [6]: https://goreportcard.com/report/github.com/smtpd-dev/smtpd-go
 
-The official [SMTPD][smtpd.dev] Go client library.
+The official [SMTPD](https://www.smtpd.dev) Go client library.
 
 ## Supported versions
 
