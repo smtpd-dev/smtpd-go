@@ -14,19 +14,27 @@ var (
 	ErrResourceNotFound = errors.New("resource not found")
 )
 
-func (c *Client) parseResponseError(body []byte) error {
-	var errCode Error
+func (c *Client) parseAPIError(body []byte) error {
+	var errCode apiError
 
 	err := json.Unmarshal(body, &errCode)
 	if err != nil {
 		return err
 	}
 
-	return fmt.Errorf("code: %d, message: %s", errCode.Code, errCode.Message)
+	return errCode.Error()
 }
 
-//Error Code response struct.
-type Error struct {
+//smtpdError is a error response
+type apiError struct {
 	Code    int    `json:"code"`
 	Message string `json:"message"`
+}
+
+func (e *apiError) String() string {
+	return fmt.Sprintf("code: %d, message: %s", e.Code, e.Message)
+}
+
+func (e *apiError) Error() error {
+	return fmt.Errorf("code: %d, message: %s", e.Code, e.Message)
 }

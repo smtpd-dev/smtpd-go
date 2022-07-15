@@ -54,7 +54,7 @@ func (c *Client) basicAuth() error {
 	}
 
 	if statusCode != http.StatusOK {
-		return c.parseResponseError(body)
+		return c.parseAPIError(body)
 	}
 
 	var r OauthTokenResponse
@@ -116,7 +116,7 @@ func (c *Client) refreshAccessToken() error {
 	}
 
 	if statusCode != http.StatusOK {
-		return c.parseResponseError(body)
+		return c.parseAPIError(body)
 	}
 
 	var r OauthTokenResponse

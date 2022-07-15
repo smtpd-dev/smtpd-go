@@ -64,7 +64,7 @@ func (c *Client) SendBasic(message SendBasicMessage) (SendBasicDetailedResponse,
 	}
 
 	if statusCode != http.StatusAccepted {
-		return result, c.parseResponseError(body)
+		return result, c.parseAPIError(body)
 	}
 
 	err = json.Unmarshal(body, &result)

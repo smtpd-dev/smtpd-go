@@ -69,7 +69,7 @@ func (c *Client) CreateProfile(profile *CreateSendingProfile) (SendingProfile, e
 	}
 
 	if statusCode != http.StatusAccepted {
-		return result, c.parseResponseError(body)
+		return result, c.parseAPIError(body)
 	}
 
 	err = json.Unmarshal(body, &result)
@@ -97,7 +97,7 @@ func (c *Client) GetProfileByID(id string) (SendingProfile, error) {
 	}
 
 	if statusCode != http.StatusOK {
-		return result, c.parseResponseError(body)
+		return result, c.parseAPIError(body)
 	}
 
 	err = json.Unmarshal(body, &result)
@@ -124,7 +124,7 @@ func (c *Client) GetProfileByName(name string) (SendingProfile, error) {
 	}
 
 	if statusCode != http.StatusAccepted {
-		return result, c.parseResponseError(body)
+		return result, c.parseAPIError(body)
 	}
 
 	var profiles []SendingProfile
@@ -158,7 +158,7 @@ func (c *Client) GetAllProfiles() ([]SendingProfile, error) {
 	}
 
 	if statusCode != http.StatusOK {
-		return result, c.parseResponseError(body)
+		return result, c.parseAPIError(body)
 	}
 
 	err = json.Unmarshal(body, &result)
