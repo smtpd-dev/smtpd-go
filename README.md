@@ -55,7 +55,7 @@ import (
     "encoding/json"
     "fmt"
     "github.com/joho/godotenv"
-	smtpd "github.com/smtpd-dev/smtpd-go/v0.1"
+    smtpd "github.com/smtpd-dev/smtpd-go/v0.1"
     "log"
     "os"
 )
@@ -110,11 +110,11 @@ the following guidelines in mind:
 
 Before running the tests, make sure to grab all of the package's dependencies:
 
-    `go get -t -v`
+   `go get -t -v`
 
 Run all tests:
 
-    `make test`
+   `make test`
 
 For any requests, bug or comments, please [open an issue][issues] or [submit a
 pull request][pulls].
