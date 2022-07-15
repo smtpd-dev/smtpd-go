@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/joho/godotenv"
+	smtpd "github.com/smtpd-dev/smtpd-go/v0.1"
 	"log"
 	"os"
 )
