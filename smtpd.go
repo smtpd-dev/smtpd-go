@@ -8,6 +8,7 @@ import (
 const (
 	baseURL     string = "https://api.smtpd.dev" // baseURL - Base URL for the SMTPD API
 	baseVersion string = "v1"                    // baseVersion Base version for the API
+	client      string = "smtpd-go/0.1"
 )
 
 // Client -
@@ -50,6 +51,7 @@ func (c *Client) preFlight() bool {
 
 func (c *Client) baseHeaders() map[string]string {
 	return map[string]string{
+		HeaderUserAgent:     client,
 		HeaderContentType:   ContentTypeJson,
 		HeaderAuthorization: c.bearer(),
 	}
