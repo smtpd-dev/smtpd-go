@@ -3,7 +3,7 @@ on: [push]
 jobs:
 
   pr:
-    runs-on: ubuntu-latest
+    runs-on: grit-2vcpu-ubuntu-2404
     if: github.ref != 'refs/heads/main'
     name: lint, test & build
     env:
@@ -16,7 +16,7 @@ jobs:
         run: make lint && make test && make build
 
   release:
-    runs-on: ubuntu-latest
+    runs-on: grit-2vcpu-ubuntu-2404
     if: github.ref == 'refs/heads/main'
     name: test and tag
     env:
